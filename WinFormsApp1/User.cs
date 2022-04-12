@@ -10,6 +10,7 @@ namespace WinFormsApp1
         public string Priezvisko { get; set; }
 
         public string Bydlisko { get; set; }
+        public string Email { get; set; }
 
         public string Psč { get; set; }
 

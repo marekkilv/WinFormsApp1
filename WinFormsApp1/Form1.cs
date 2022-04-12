@@ -53,19 +53,48 @@ namespace WinFormsApp1
                 Meno = tboxmeno.Text,
                 Priezvisko = tboxpriezvisko.Text,
                 Bydlisko = tboxbydlisko.Text,
+                Email = tboxemail.Text,
                 Psč = tboxpsc.Text,
                 Poisťovňa = tboxpoistovna.Text,
-                Pohlavie = tboxpohlavie.Text,
+                Pohlavie = checkBox1.Text 
 
 
 
             };
 
-            //SetResponse set = client.Set(@"Appka/" + tboxmeno.Text, uzivatel);
+            SetResponse set = client.Set(@"Appka/" + tboxmeno.Text, uzivatel);
 
             MessageBox.Show("Vaša regsitrácia bola prihjatá.Bude Vám poslaná SMS s ďaľšmi inštrukciami.");
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FirebaseResponse set = client.Delete(@"appka/" + tboxmeno.Text);
+            MessageBox.Show("Client úspešne odtránený!");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            User uzivatel = new User()
+            {
+                Meno = tboxmeno.Text,
+                Priezvisko = tboxpriezvisko.Text,
+                Bydlisko = tboxbydlisko.Text,
+                Email = tboxemail.Text, 
+                Psč = tboxpsc.Text,
+                Poisťovňa = tboxpoistovna.Text,
+                Pohlavie = checkBox1.Text
+
+
+
+            };
+
+            SetResponse set = client.Set(@"Appka/" + tboxmeno.Text, uzivatel);
+
+            MessageBox.Show("Prebehla najnovšia aktualizácia databázy!");
+        }
+
+        
     }
 
 }
